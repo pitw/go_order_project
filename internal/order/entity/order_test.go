@@ -9,7 +9,7 @@ import (
 
 // Test given that I have (blank ID) when I create a new order then it should return error
 func TestGivenAnEmptyID_WhenCreateNewOrder_ThenShouldReceiveAnError(t *testing.T) {
-	order := Order{ID: "1"}
+	order := Order{ID: ""}
 	assert.Error(t, order.IsValid(), "invalid id")
 }
 func TestGivenAnPrice_WhenCreateNewOrder_ThenShouldReceiveAnError(t *testing.T) {
@@ -22,7 +22,7 @@ func TestGivenAnTax_WhenCreateNewOrder_ThenShouldReceiveAnError(t *testing.T) {
 	assert.Error(t, order.IsValid(), "invalid Tax")
 }
 
-func TestGivenAnValidParams_whenICallNewOrder_thenIshouldReceiveCreateOrderWithAllParams(t *testing.T) {
+func TestGivenAnValidParams_whenICallNewOrder_ThenIshouldReceiveCreateOrderWithAllParams(t *testing.T) {
 	order := Order{ID: "123", Price: 10.0, Tax: 2.0}
 
 	assert.Equal(t, "123", order.ID)
@@ -32,7 +32,7 @@ func TestGivenAnValidParams_whenICallNewOrder_thenIshouldReceiveCreateOrderWithA
 }
 
 // (*testing.T) - o T and to be able to run the tests
-func TestGivenAnValidParams_whenICallNewOrderFunc_thenIshouldReceiveCreateOrderWithAllParams(t *testing.T) {
+func TestGivenAnValidParams_whenICallNewOrderFunc_ThenIshouldReceiveCreateOrderWithAllParams(t *testing.T) {
 	order, err := NewOrder("123", 10.0, 2.0)
 
 	assert.Nil(t, err)
@@ -42,7 +42,7 @@ func TestGivenAnValidParams_whenICallNewOrderFunc_thenIshouldReceiveCreateOrderW
 	assert.Nil(t, order.IsValid())
 }
 
-func TestGivenAnPriceAndTax_whenICallCalculatePrice_thenIshouldSetFinalPrice(t *testing.T) {
+func TestGivenAnPriceAndTax_whenICallCalculatePrice_ThenIshouldSetFinalPrice(t *testing.T) {
 	order, err := NewOrder("123", 10.0, 2.0)
 	assert.Nil(t, err)
 	assert.Nil(t, order.CalculateFinalPrice())
