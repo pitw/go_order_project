@@ -48,6 +48,7 @@ func (o *Order) IsValid() error {
 	return nil
 }
 
+// how to calculate the final price
 func (o *Order) CalculateFinalPrice() error {
 	o.FinalPrice = o.Price + o.Tax
 	err := o.IsValid()
