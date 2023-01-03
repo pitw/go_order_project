@@ -38,7 +38,7 @@ func TestSuite(t *testing.T) {
 }
 
 func (suite *CalculateFinalPriceUseCaseTestSuite) TestCalculateFinalPrice() {
-	order, err := entity.NewOrder("1", 10, 2)
+	order, err := entity.NewOrder(1, 10, 2)
 	suite.NoError(err)
 	order.CalculateFinalPrice()
 
