@@ -4,7 +4,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/axnd/goaxnd/internal/order/entity"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -55,6 +54,6 @@ func Connect() {
 }
 
 func automigrate(db *gorm.DB) (err error) {
-	mg := db.AutoMigrate(&entity.Order{})
+	mg := db.AutoMigrate(&Order{}, &ProductType{})
 	return mg
 }
